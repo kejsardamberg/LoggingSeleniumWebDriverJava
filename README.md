@@ -12,7 +12,11 @@ If not used as a WebDriver, but kept as a LoggingSeleniumWebDriver you may add o
 ```    
 Logging may be paused or resumed anywhere by
 ```java
-    driver.pauseLogging();
+    LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(new ChromeDriver());
     driver.get("https://mypage.com");
+    driver.findElement(userNameField).sendKeys("SuperAdmin");
+    driver.pauseLogging();
+    driver.findElement(passwordField).sendKeys("TopSecret!");
     driver.resumeLogging();
+    driver.findElement(loginButton).click();
 ```
