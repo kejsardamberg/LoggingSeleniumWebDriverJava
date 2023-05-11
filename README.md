@@ -1,4 +1,4 @@
-# LoggingSeleniumWebDriverJava
+# LoggingSeleniumWebDriver - Java version
 Simple logging framework to wrap a Java Selenium WebDriver instance to make it output customizable and extendible logs.
 This library by default logs event by the WebDriver instance in a natural flow. 
 You may also log your own messages to the log, for example for verification results. 
