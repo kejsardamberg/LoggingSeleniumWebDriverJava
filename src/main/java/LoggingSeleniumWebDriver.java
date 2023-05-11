@@ -34,7 +34,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
     public LoggingSeleniumWebDriver attachWebDriverInstance(WebDriver driver) throws LoggingSeleniumWebDriverException {
         if(originalWebDriver != null) throw new LoggingSeleniumWebDriverException("Attaching new driver instance when driver instance is already set require driver detach.");
         this.originalWebDriver = driver;
-        log("Starting driver of type " + this.originalWebDriver.getClass().getName() + ".");
+        logInfo("Starting driver of type " + this.originalWebDriver.getClass().getName() + ".");
         return this;
     }
 
@@ -82,25 +82,25 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
     }
 
     public void get(String url) {
-        log("Navigating to '" + url + "'.");
+        logExecutionStep("Navigating to '" + url + "'.");
         originalWebDriver.get(url);
     }
 
     public String getCurrentUrl() {
         String url = originalWebDriver.getCurrentUrl();
-        log("Retrieving current URL (='" + url + "').");
+        logDebug("Retrieving current URL (='" + url + "').");
         return url;
     }
 
     public String getTitle() {
         String title = originalWebDriver.getTitle();
-        log("Retrieving current page title (='" + title + "').");
+        logDebug("Retrieving current page title (='" + title + "').");
         return title;
     }
 
     public List<WebElement> findElements(By by) {
         List<WebElement> elements = originalWebDriver.findElements(by);
-        log("Identifying " + elements.size() + " elements for By statement '" + by.toString() + "'.");
+        logDebug("Identifying " + elements.size() + " elements for By statement '" + by.toString() + "'.");
         List<WebElement> elements2 = new ArrayList<>();
         for (WebElement webElement : elements) {
             elements2.add(new LoggingWebElement(webElement, loggerList));
@@ -111,37 +111,37 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
     public WebElement findElement(By by) {
         WebElement element = originalWebDriver.findElement(by);
         if (element == null) {
-            log("Could not identify any element for By statement '" + by.toString() + "'.");
+            logDebug("Could not identify any element for By statement '" + by.toString() + "'.");
         } else {
-            log("Identified element for By statement '" + by.toString() + "'.");
+            logDebug("Identified element for By statement '" + by.toString() + "'.");
         }
         return new LoggingWebElement(element, loggerList);
     }
 
     public String getPageSource() {
-        log("Retrieving current page source.");
+        logInfo("Retrieving current page source.");
         return originalWebDriver.getPageSource();
     }
 
     public void close() {
-        log("Closing web driver.");
+        logInfo("Closing web driver.");
         originalWebDriver.close();
     }
 
     public void quit() {
-        log("Quitting web driver instance.");
+        logInfo("Quitting web driver instance.");
         originalWebDriver.quit();
     }
 
     public Set<String> getWindowHandles() {
         Set<String> windowHandles = originalWebDriver.getWindowHandles();
-        log("Retrieved " + windowHandles.size() + " window handles.");
+        logDebug("Retrieved " + windowHandles.size() + " window handles.");
         return windowHandles;
     }
 
     public String getWindowHandle() {
         String handle = originalWebDriver.getWindowHandle();
-        log("Identified current window handle (='" + handle + "').");
+        logDebug("Identified current window handle (='" + handle + "').");
         return handle;
     }
 

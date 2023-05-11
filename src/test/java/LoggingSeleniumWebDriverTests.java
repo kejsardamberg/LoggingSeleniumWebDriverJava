@@ -4,6 +4,7 @@ import loggertypes.ConsoleLogger;
 import logging.LogLevel;
 import logging.LoggingSeleniumWebDriverException;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -25,11 +26,16 @@ public class LoggingSeleniumWebDriverTests {
     @Test
     public void builderPatternTest(){
         WebDriver driver = new LoggingSeleniumWebDriver.Builder()
-                .attachWebDriverInstance(new TestWebDriver())
+                .attachWebDriverInstance(new ChromeDriver())
                 .addLogger(new ConsoleLogger())
                 .setMinimumLogLevel(LogLevel.DEBUG)
                 .build();
-        driver.get("https://mysaite.com");
+        By searchField = By.tagName("textarea");
+        driver.get("https://google.com");
+        driver.findElement(By.id("W0wltc")).click();
+        driver.findElement(searchField).click();
+        driver.findElement(searchField).sendKeys("Logging");
+        driver.findElement(searchField).submit();
         driver.quit();
     }
 
