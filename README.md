@@ -23,7 +23,6 @@ If we would wrap this with LogginSeleniumWebDriver it produces the followin outp
 ```
 2023-05-11 16:30:06 INFO: Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
 2023-05-11 16:30:06 EXECUTION_STEP: Navigating to 'https://google.com'.
-2023-05-11 16:30:06 EXECUTION_STEP: Clicking button element Avvisa alla.
 2023-05-11 16:30:06 EXECUTION_STEP: Clicking textarea element Sök.
 2023-05-11 16:30:07 EXECUTION_STEP: Sending keys '[Ljava.lang.CharSequence;@5922ae77' to textarea element Sök.
 2023-05-11 16:30:07 EXECUTION_STEP: Submitting
