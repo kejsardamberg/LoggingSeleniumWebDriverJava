@@ -3,6 +3,34 @@ Simple logging framework to wrap a Java Selenium WebDriver instance to make it o
 This library by default logs event by the WebDriver instance in a natural flow. 
 You may also log your own messages to the log, for example for verification results. 
 
+## What it is
+Selenium WebDriver is a useful tool to drive web browser activities for test purposes. 
+However, Selenium WebDriver doesn't have any means of telling what it has done for logging purposes.
+
+For example; the test:
+```java
+        By searchField = By.tagName("textarea");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://google.com");
+        driver.findElement(searchField).click();
+        driver.findElement(searchField).sendKeys("Logging");
+        driver.findElement(searchField).submit();
+        driver.quit();
+```
+Would only output some text about starting a ChromeDriver instance.
+
+If we would wrap this with LogginSeleniumWebDriver it produces the followin output:
+```
+2023-05-11 16:30:06 INFO: Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
+2023-05-11 16:30:06 EXECUTION_STEP: Navigating to 'https://google.com'.
+2023-05-11 16:30:06 EXECUTION_STEP: Clicking button element Avvisa alla.
+2023-05-11 16:30:06 EXECUTION_STEP: Clicking textarea element Sök.
+2023-05-11 16:30:07 EXECUTION_STEP: Sending keys '[Ljava.lang.CharSequence;@5922ae77' to textarea element Sök.
+2023-05-11 16:30:07 EXECUTION_STEP: Submitting
+2023-05-11 16:30:07 INFO: Quitting web driver instance.
+```
+Depending on the log level this could get even more detailed (as can be seen below).
+
 ## Getting started
 ### Regular instantiation
 ```java
@@ -28,6 +56,7 @@ To set the minimum log level, use the setMinimumLogLevel() method.
         LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(new FirefoxDriver());
         driver.setMinimumLogLevel(LogLevel.INFO);
 ```    
+Using the builder pattern you may also set the logging level at instansiation.
 
 ### Custom log messages
 Sometimes you want to write out your own messages to the log. 
