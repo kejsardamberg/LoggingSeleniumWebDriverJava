@@ -30,6 +30,18 @@ If we would wrap this with LogginSeleniumWebDriver it produces the followin outp
 ```
 Depending on the log level this could get even more detailed (as can be seen below).
 
+```
+2023-05-11 16:38:19 INFO: Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
+2023-05-11 16:38:19 EXECUTION_STEP: Navigating to 'https://google.com'.
+2023-05-11 16:38:20 DEBUG: Identified element for By statement 'By.tagName: textarea'.
+2023-05-11 16:38:20 EXECUTION_STEP: Clicking textarea element Sök.
+2023-05-11 16:38:20 DEBUG: Identified element for By statement 'By.tagName: textarea'.
+2023-05-11 16:38:20 EXECUTION_STEP: Sending keys '[Ljava.lang.CharSequence;@5922ae77' to textarea element Sök.
+2023-05-11 16:38:20 DEBUG: Identified element for By statement 'By.tagName: textarea'.
+2023-05-11 16:38:20 EXECUTION_STEP: Submitting
+2023-05-11 16:38:20 INFO: Quitting web driver instance.
+```
+
 ## Getting started
 ### Regular instantiation
 ```java
