@@ -38,6 +38,11 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
         return this;
     }
 
+    public LoggingSeleniumWebDriver setMinimumLogLevel(LogLevel logLevel){
+        loggerList.minimumLogLevel = logLevel;
+        return this;
+    }
+
     public LoggingSeleniumWebDriver detachWebDriverInstance(){
         originalWebDriver = null;
         return this;
@@ -49,9 +54,23 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
     }
 
     public void log(String message) {
-        for (Logger logger : loggerList) {
-            logger.addLogPost(new LogPost(LogLevel.INFO, message));
-        }
+        loggerList.logInfo(message);
+    }
+
+    public void logDebug(String message){
+        loggerList.logDebug(message);
+    }
+
+    public void logException(Exception e){
+        loggerList.logException(e);
+    }
+
+    public void logInfo(String message){
+        loggerList.logInfo(message);
+    }
+
+    public void logExecutionStep(String message){
+        loggerList.logExecutionStep(message);
     }
 
     public void pauseLogging() {
@@ -143,8 +162,12 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
         private WebDriver driver;
         private LoggerList loggerList;
+        private LogLevel mimimumLogLevel;
+
         public Builder(){
             loggerList = new LoggerList();
+            mimimumLogLevel = null;
+            driver = null;
         }
 
         public Builder addLogger(Logger logger){
@@ -165,7 +188,13 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
         public LoggingSeleniumWebDriver build() {
             LoggingSeleniumWebDriver loggingSeleniumWebDriver = new LoggingSeleniumWebDriver(driver);
             loggingSeleniumWebDriver.loggerList = loggerList;
+            if(mimimumLogLevel != null) loggingSeleniumWebDriver.setMinimumLogLevel(mimimumLogLevel);
             return loggingSeleniumWebDriver;
+        }
+
+        public Builder setMinimumLogLevel(LogLevel mimimumLogLevel) {
+            this.mimimumLogLevel = mimimumLogLevel;
+            return this;
         }
     }
 }
