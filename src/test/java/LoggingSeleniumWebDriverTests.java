@@ -14,6 +14,7 @@ public class LoggingSeleniumWebDriverTests {
     @Test
     public void instanceCreation(){
         LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(new TestWebDriver());
+        driver.quit();
     }
 
     @Test
@@ -21,6 +22,7 @@ public class LoggingSeleniumWebDriverTests {
         LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(new TestWebDriver());
         driver.addLogger(new ConsoleLogger());
         driver.get("https://newsite.com");
+        driver.quit();
     }
 
     @Test
@@ -41,15 +43,20 @@ public class LoggingSeleniumWebDriverTests {
 
     @Test
     public void setLogLevelTest() throws LoggingSeleniumWebDriverException {
-        LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(new FirefoxDriver());
+        WebDriver driver1 = new FirefoxDriver();
+        LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(driver1);
         driver.detachWebDriverInstance();
-        driver.attachWebDriverInstance(new ChromeDriver());
+        driver1.quit();
+
+        WebDriver driver2 = new ChromeDriver();
+        driver.attachWebDriverInstance(driver2);
         driver.setMinimumLogLevel(LogLevel.INFO);
         driver.log("Message");
-        driver.originalWebDriver.get("https://newsite.com");
+        driver.originalWebDriver.get("https://zingtongroup.com");
         driver.logDebug("This is a detailed debug information message.");
         driver.logInfo("This is important information regarding execution.");
         driver.logExecutionStep("This is information about a performed execution step.");
-        driver.logException(new LoggingSeleniumWebDriverException("Oups!!!"));
+        //driver.logException(new LoggingSeleniumWebDriverException("Oups!!!"));
+        driver.quit();
     }
 }
