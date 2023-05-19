@@ -20,7 +20,7 @@ For example; the test:
 Would only output some text about starting a ChromeDriver instance.
 
 If we would wrap this with LogginSeleniumWebDriver it produces the followin output:
-```
+```console
 2023-05-11 16:30:06 INFO:           Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
 2023-05-11 16:30:06 EXECUTION_STEP: Navigating to 'https://google.com'.
 2023-05-11 16:30:06 EXECUTION_STEP: Clicking textarea element Sök.
