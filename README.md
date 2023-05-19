@@ -43,6 +43,17 @@ Depending on the log level this could get even more detailed (as can be seen bel
 ```
 
 ## Getting started
+### Including dependency
+Get it from maven central by including this to your dependencies section of your pom.xml file:
+```
+<dependency>
+    <groupId>com.github.claremontqualitymanagement.LoggingSeleniumWebDriver</groupId>
+    <artifactId>LoggingSeleniumWebDriver</artifactId>
+    <version>1.0.1</version>
+</dependency>
+```
+or by downloading release artifacts from this repository, or clone the code and compile it yourself.
+
 ### Regular instantiation
 ```java
     WebDriver driver = new LoggingSeleniumWebDriver(new ChromeDriver()); //Enables console logger by default
