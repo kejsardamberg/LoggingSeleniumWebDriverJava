@@ -1,4 +1,4 @@
-# LoggingSeleniumWebDriverJava
+# LoggingSeleniumWebDriver - Java version
 Simple logging framework to wrap a Java Selenium WebDriver instance to make it output customizable and extendible logs.
 This library by default logs event by the WebDriver instance in a natural flow. 
 You may also log your own messages to the log, for example for verification results. 
@@ -21,25 +21,25 @@ Would only output some text about starting a ChromeDriver instance.
 
 If we would wrap this with LogginSeleniumWebDriver it produces the followin output:
 ```
-2023-05-11 16:30:06 INFO: Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
+2023-05-11 16:30:06 INFO:           Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
 2023-05-11 16:30:06 EXECUTION_STEP: Navigating to 'https://google.com'.
 2023-05-11 16:30:06 EXECUTION_STEP: Clicking textarea element Sök.
 2023-05-11 16:30:07 EXECUTION_STEP: Sending keys '[Ljava.lang.CharSequence;@5922ae77' to textarea element Sök.
 2023-05-11 16:30:07 EXECUTION_STEP: Submitting
-2023-05-11 16:30:07 INFO: Quitting web driver instance.
+2023-05-11 16:30:07 INFO:           Quitting web driver instance.
 ```
 Depending on the log level this could get even more detailed (as can be seen below).
 
 ```
-2023-05-11 16:38:19 INFO: Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
+2023-05-11 16:38:19 INFO:           Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
 2023-05-11 16:38:19 EXECUTION_STEP: Navigating to 'https://google.com'.
-2023-05-11 16:38:20 DEBUG: Identified element for By statement 'By.tagName: textarea'.
+2023-05-11 16:38:20 DEBUG:          Identified element for By statement 'By.tagName: textarea'.
 2023-05-11 16:38:20 EXECUTION_STEP: Clicking textarea element Sök.
-2023-05-11 16:38:20 DEBUG: Identified element for By statement 'By.tagName: textarea'.
+2023-05-11 16:38:20 DEBUG:          Identified element for By statement 'By.tagName: textarea'.
 2023-05-11 16:38:20 EXECUTION_STEP: Sending keys '[Ljava.lang.CharSequence;@5922ae77' to textarea element Sök.
-2023-05-11 16:38:20 DEBUG: Identified element for By statement 'By.tagName: textarea'.
+2023-05-11 16:38:20 DEBUG:          Identified element for By statement 'By.tagName: textarea'.
 2023-05-11 16:38:20 EXECUTION_STEP: Submitting
-2023-05-11 16:38:20 INFO: Quitting web driver instance.
+2023-05-11 16:38:20 INFO:           Quitting web driver instance.
 ```
 
 ## Getting started
