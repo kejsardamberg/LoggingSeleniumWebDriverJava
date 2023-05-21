@@ -1,4 +1,4 @@
-# java.com.zingtongroup.loggingseleniumwebdriver.LoggingSeleniumWebDriver - Java version
+# LoggingSeleniumWebDriver - Java version
 Simple logging framework to wrap a Java Selenium WebDriver instance to make it output customizable and extendible logs.
 This library by default logs event by the WebDriver instance in a natural flow. 
 You may also log your own messages to the log, for example for verification results. 
@@ -130,3 +130,6 @@ THe Logger is an interface. Feel free to implement your own classes based on thi
         driver.attachWebDriverInstance(new ChromeDriver());
         //Continue exeuction in Chrome
 ```
+
+### Extend with custom log levels
+Any new log level should implement the LogLevel interface. You might need to override existing log levels for log level filtering log level to work as expected. 
