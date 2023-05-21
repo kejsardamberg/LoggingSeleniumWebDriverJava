@@ -49,7 +49,7 @@ Get it from maven central by including this to your dependencies section of your
 <dependency>
     <groupId>com.github.claremontqualitymanagement</groupId>
     <artifactId>LoggingSeleniumWebDriver</artifactId>
-    <version>1.1.2</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 or by downloading release artifacts from this repository, or clone the code and compile it yourself.
@@ -70,6 +70,9 @@ or by downloading release artifacts from this repository, or clone the code and 
 
 ## Other features
 Using this library is meant to be pretty straight forward. However, since there are a few features these could also be configured.
+
+### sendKeys() variant: sendSecretKeys(CharSequence... keysToSent)
+Sometimes you don't want strings to be sent to the log, like password inputs. Hence a version of the regular Selenium WebElement sendKeys() method is included. It produces log output of sent characters like '****' instead of actual characters.
 
 ### Set log level
 There are several log levels, DEBUG, INFO, EXECUTION_STEP, and EXCEPTION (in this order). 
