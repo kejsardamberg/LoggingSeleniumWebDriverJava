@@ -1,7 +1,7 @@
 package TestHelpers;
 
-import logging.LogPost;
-import logging.Logger;
+import com.zingtongroup.loggingseleniumwebdriver.logging.LogPost;
+import com.zingtongroup.loggingseleniumwebdriver.logging.Logger;
 import org.junit.Assert;
 
 public class TestLogger implements Logger {

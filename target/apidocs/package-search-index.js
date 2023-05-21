@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"loggertypes"},{"l":"logging"},{"l":"loggingseleniumcomponents"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.zingtongroup.loggingseleniumwebdriver"},{"l":"com.zingtongroup.loggingseleniumwebdriver.loggertypes"},{"l":"com.zingtongroup.loggingseleniumwebdriver.logging"},{"l":"com.zingtongroup.loggingseleniumwebdriver.loggingseleniumcomponents"}];updateSearchResults();

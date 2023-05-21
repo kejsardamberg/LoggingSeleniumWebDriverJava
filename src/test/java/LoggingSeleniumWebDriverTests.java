@@ -1,8 +1,8 @@
-import TestHelpers.TestLogger;
 import TestHelpers.TestWebDriver;
-import loggertypes.ConsoleLogger;
-import logging.LogLevel;
-import logging.LoggingSeleniumWebDriverException;
+import com.zingtongroup.loggingseleniumwebdriver.LoggingSeleniumWebDriver;
+import com.zingtongroup.loggingseleniumwebdriver.loggertypes.ConsoleLogger;
+import com.zingtongroup.loggingseleniumwebdriver.logging.LoggingSeleniumWebDriverException;
+import com.zingtongroup.loggingseleniumwebdriver.logging.TestFlowLogLevel;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,7 +30,7 @@ public class LoggingSeleniumWebDriverTests {
         WebDriver driver = new LoggingSeleniumWebDriver.Builder()
                 .attachWebDriverInstance(new ChromeDriver())
                 .addLogger(new ConsoleLogger())
-                .setMinimumLogLevel(LogLevel.DEBUG)
+                .setMinimumLogLevel(TestFlowLogLevel.DEBUG)
                 .build();
         By searchField = By.tagName("textarea");
         driver.get("https://google.com");
@@ -50,7 +50,7 @@ public class LoggingSeleniumWebDriverTests {
 
         WebDriver driver2 = new ChromeDriver();
         driver.attachWebDriverInstance(driver2);
-        driver.setMinimumLogLevel(LogLevel.INFO);
+        driver.setMinimumLogLevel(TestFlowLogLevel.INFO);
         driver.log("Message");
         driver.originalWebDriver.get("https://zingtongroup.com");
         driver.logDebug("This is a detailed debug information message.");

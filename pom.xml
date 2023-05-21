@@ -35,7 +35,7 @@
         <connection>scm:git:git://github.com/kejsardamberg/LoggingSeleniumWebDriverJava.git</connection>
         <developerConnection>scm:git://github.com/kejsardamberg/LoggingSeleniumWebDriverJava.git</developerConnection>
         <url>https://github.com/kejsardamberg/LoggingSeleniumWebDriverJava</url>
-        <tag>LoggingSeleniumWebDriver-1.0.1-SNAPSHOT</tag>
+        <tag>java.org.zingtongroup.loggingseleniumwebdriver.LoggingSeleniumWebDriver-1.0.1-SNAPSHOT</tag>
   </scm>
 
     <dependencies>
