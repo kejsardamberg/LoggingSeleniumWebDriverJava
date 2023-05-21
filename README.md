@@ -20,7 +20,7 @@ For example; the test:
 Would only output some text about starting a ChromeDriver instance.
 
 If we would wrap this with LogginSeleniumWebDriver it produces the followin output:
-```
+```console
 2023-05-11 16:30:06 INFO:           Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
 2023-05-11 16:30:06 EXECUTION_STEP: Navigating to 'https://google.com'.
 2023-05-11 16:30:06 EXECUTION_STEP: Clicking textarea element Sök.
@@ -30,7 +30,7 @@ If we would wrap this with LogginSeleniumWebDriver it produces the followin outp
 ```
 Depending on the log level this could get even more detailed (as can be seen below).
 
-```
+```console
 2023-05-11 16:38:19 INFO:           Starting driver of type org.openqa.selenium.chrome.ChromeDriver.
 2023-05-11 16:38:19 EXECUTION_STEP: Navigating to 'https://google.com'.
 2023-05-11 16:38:20 DEBUG:          Identified element for By statement 'By.tagName: textarea'.
@@ -43,6 +43,17 @@ Depending on the log level this could get even more detailed (as can be seen bel
 ```
 
 ## Getting started
+### Including dependency
+Get it from maven central by including this to your dependencies section of your pom.xml file:
+```xml
+<dependency>
+    <groupId>com.github.claremontqualitymanagement.LoggingSeleniumWebDriver</groupId>
+    <artifactId>LoggingSeleniumWebDriver</artifactId>
+    <version>1.0.1</version>
+</dependency>
+```
+or by downloading release artifacts from this repository, or clone the code and compile it yourself.
+
 ### Regular instantiation
 ```java
     WebDriver driver = new LoggingSeleniumWebDriver(new ChromeDriver()); //Enables console logger by default
