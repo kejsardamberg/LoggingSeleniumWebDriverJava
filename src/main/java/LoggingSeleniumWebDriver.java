@@ -95,6 +95,30 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
     }
 
     /**
+     * Pushes a log message with PASSED_VERIFICATION log level to registered {@link Logger} instances.
+     * @param message
+     */
+    public void logPassedVerification(String message){
+        loggerList.logPassedVerification(message);
+    }
+
+    /**
+     * Pushes a log message with FAILED_VERIFICATION log level to registered {@link Logger} instances.
+     * @param message
+     */
+    public void logFailedVerification(String message){
+        loggerList.logFailedVerification(message);
+    }
+
+    /**
+     * Pushes a log message with VERIFICATION_PROBLEM log level to registered {@link Logger} instances.
+     * @param message
+     */
+    public void logVerificationProblem(String message){
+        loggerList.logVerificationProblem(message);
+    }
+
+    /**
      * Pushes a log message with DEBUG log level to registered {@link Logger} instances.
      * @param message
      */

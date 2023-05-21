@@ -4,7 +4,10 @@ public enum LogLevel {
     DEBUG(0),
     INFO(1),
     EXECUTION_STEP(2),
-    EXCEPTION(3);
+    PASSED_VERIFICATION(4),
+    FAILED_VERIFICATION(5),
+    VERIFICATION_PROBLEM(6),
+    EXCEPTION(7);
 
     public final int value;
 

@@ -59,6 +59,27 @@ public class LoggerList extends ArrayList<Logger> {
         addLogPostToLoggers(logPost);
     }
 
+    public void logPassedVerification(String logMessage){
+        if(isPaused)return;
+        LogPost logPost = new LogPost(LogLevel.PASSED_VERIFICATION, logMessage);
+        if (logPost.logLevel.value < minimumLogLevel.value) return;
+        addLogPostToLoggers(logPost);
+    }
+
+    public void logFailedVerification(String logMessage){
+        if(isPaused)return;
+        LogPost logPost = new LogPost(LogLevel.FAILED_VERIFICATION, logMessage);
+        if (logPost.logLevel.value < minimumLogLevel.value) return;
+        addLogPostToLoggers(logPost);
+    }
+
+    public void logVerificationProblem(String logMessage){
+        if(isPaused)return;
+        LogPost logPost = new LogPost(LogLevel.VERIFICATION_PROBLEM, logMessage);
+        if (logPost.logLevel.value < minimumLogLevel.value) return;
+        addLogPostToLoggers(logPost);
+    }
+
     public void log(String logMessage) {
         if (isPaused) return;
         LogPost logPost = new LogPost(LogLevel.EXECUTION_STEP, logMessage);
