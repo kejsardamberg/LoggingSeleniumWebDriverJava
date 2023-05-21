@@ -45,7 +45,9 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
             loggerList.logInfo("Attempting to send null to " + elementString + " with sendKeys(). Skipping it.");
             return;
         }
-        loggerList.logExecutionStep("Sending keys '" + String.valueOf(keysToSend) + "' to " + elementString + ".");
+        StringBuilder sb = new StringBuilder();
+        sb.append(keysToSend);
+        loggerList.logExecutionStep("Sending keys '" + sb.toString() + "' to " + elementString + ".");
         webElement.sendKeys(keysToSend);
     }
 
