@@ -41,7 +41,11 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
     }
 
     public void sendKeys(CharSequence... keysToSend) {
-        loggerList.logExecutionStep("Sending keys '" + keysToSend.toString() + "' to " + elementString + ".");
+        if(keysToSend == null){
+            loggerList.logInfo("Attempting to send null to " + elementString + " with sendKeys(). Skipping it.");
+            return;
+        }
+        loggerList.logExecutionStep("Sending keys '" + String.valueOf(keysToSend) + "' to " + elementString + ".");
         webElement.sendKeys(keysToSend);
     }
 
@@ -50,6 +54,10 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
      * @param keysToSend
      */
     public void sendSecretKeys(CharSequence... keysToSend) {
+        if(keysToSend == null){
+            loggerList.logInfo("Attempting to send null to " + elementString + " with sendSecretKeys(). Skipping it.");
+            return;
+        }
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < keysToSend.length; i++){
             sb.append("*");
