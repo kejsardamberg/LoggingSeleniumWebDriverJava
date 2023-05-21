@@ -45,6 +45,19 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
         webElement.sendKeys(keysToSend);
     }
 
+    /**
+     * Hides sent characters in log by utilizing the *** pattern rather than actual characters.
+     * @param keysToSend
+     */
+    public void sendSecretKeys(CharSequence... keysToSend) {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < keysToSend.length; i++){
+            sb.append("*");
+        }
+        loggerList.logExecutionStep("Sending secret keys '" + sb.toString() + "' to " + elementString + ".");
+        webElement.sendKeys(keysToSend);
+    }
+
     public void clear() {
         loggerList.logExecutionStep("Clearing element " + elementString + ".");
         webElement.clear();
