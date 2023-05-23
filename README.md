@@ -52,7 +52,8 @@ Get it from maven central by including this to your dependencies section of your
     <version>1.2.3</version>
 </dependency>
 ```
-or by downloading release artifacts from this repository, or clone the code and compile it yourself.
+or by downloading release artifacts from this repository, or clone the code and compile it yourself. The latest released binaries can be found here: 
+https://github.com/kejsardamberg/LoggingSeleniumWebDriverJava/releases/tag/LoggingSeleniumWebDriver-1.2.3
 
 ### Regular instantiation
 ```java
