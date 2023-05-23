@@ -52,7 +52,8 @@ Get it from maven central by including this to your dependencies section of your
     <version>1.2.3</version>
 </dependency>
 ```
-or by downloading release artifacts from this repository. The latest released binaries can be found here: 
+You can also download released artifacts direclty from this repository and include them in your classpath. 
+The latest released binaries can be found here:
 https://github.com/kejsardamberg/LoggingSeleniumWebDriverJava/releases/tag/LoggingSeleniumWebDriver-1.2.3
 
 Of course you may also clone the code from this repository and compile it yourself as long as you adhere to the Apache 2.0 license terms.
