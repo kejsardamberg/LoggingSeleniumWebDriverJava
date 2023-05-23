@@ -49,7 +49,7 @@ Get it from maven central by including this to your dependencies section of your
 <dependency>
     <groupId>com.github.claremontqualitymanagement</groupId>
     <artifactId>LoggingSeleniumWebDriver</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
 </dependency>
 ```
 or by downloading release artifacts from this repository, or clone the code and compile it yourself.
