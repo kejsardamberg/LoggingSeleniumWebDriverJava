@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 public class LoggingTimeouts implements WebDriver.Timeouts, LoggingSeleniumComponent {
-    public LoggerList loggerList;
-    public WebDriver.Timeouts timeouts;
+    public final LoggerList loggerList;
+    public final WebDriver.Timeouts timeouts;
 
     public LoggingTimeouts(WebDriver.Timeouts timeouts, LoggerList loggerList) {
         this.loggerList = loggerList;

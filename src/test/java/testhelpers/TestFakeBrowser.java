@@ -1,4 +1,4 @@
-package TestHelpers;
+package testhelpers;
 
 public class TestFakeBrowser {
     public String currentUrl = "https://mysite.mycompany.com/this/path/and/resource";

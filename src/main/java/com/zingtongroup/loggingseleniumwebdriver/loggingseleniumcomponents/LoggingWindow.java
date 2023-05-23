@@ -6,8 +6,8 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 
 public class LoggingWindow implements WebDriver.Window, LoggingSeleniumComponent {
-    public LoggerList loggerList;
-    public WebDriver.Window window;
+    public final LoggerList loggerList;
+    public final WebDriver.Window window;
 
     public LoggingWindow(WebDriver.Window window, LoggerList loggerList) {
         this.loggerList = loggerList;

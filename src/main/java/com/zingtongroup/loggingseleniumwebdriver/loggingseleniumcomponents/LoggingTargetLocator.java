@@ -8,8 +8,8 @@ import org.openqa.selenium.WindowType;
 
 public class LoggingTargetLocator implements WebDriver.TargetLocator, LoggingSeleniumComponent {
 
-    public LoggerList loggerList;
-    public WebDriver.TargetLocator targetLocator;
+    public final LoggerList loggerList;
+    public final WebDriver.TargetLocator targetLocator;
 
     public LoggingTargetLocator(WebDriver.TargetLocator targetLocator, LoggerList loggerList) {
         this.loggerList = loggerList;

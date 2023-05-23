@@ -7,8 +7,8 @@ import java.net.URL;
 
 public class LoggingNavigation implements WebDriver.Navigation, LoggingSeleniumComponent {
 
-    public LoggerList loggerList;
-    public WebDriver.Navigation navigation;
+    public final LoggerList loggerList;
+    public final WebDriver.Navigation navigation;
 
     public LoggingNavigation(WebDriver.Navigation navigation, LoggerList loggerList) {
         this.loggerList = loggerList;

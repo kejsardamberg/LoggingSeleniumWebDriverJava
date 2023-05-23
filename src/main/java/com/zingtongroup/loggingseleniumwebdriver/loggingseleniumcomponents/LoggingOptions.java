@@ -9,8 +9,8 @@ import java.util.Set;
 
 public class LoggingOptions implements WebDriver.Options, LoggingSeleniumComponent {
 
-    public LoggerList loggerList;
-    public WebDriver.Options options;
+    public final LoggerList loggerList;
+    public final WebDriver.Options options;
 
     public LoggingOptions(WebDriver.Options options, LoggerList loggerList) {
         this.loggerList = loggerList;

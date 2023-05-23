@@ -8,9 +8,9 @@ import java.util.List;
 
 public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
 
-    public WebElement webElement;
-    public LoggerList loggerList;
-    public String elementString;
+    public final WebElement webElement;
+    public final LoggerList loggerList;
+    public final String elementString;
 
     public LoggingWebElement(WebElement webElement, LoggerList loggerList) {
         this.webElement = webElement;
@@ -47,7 +47,7 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
         }
         StringBuilder sb = new StringBuilder();
         for(CharSequence seq : keysToSend){
-            sb.append(String.valueOf(seq));
+            sb.append(seq);
         }
         loggerList.logExecutionStep("Sending keys '" + sb.toString() + "' to " + elementString + ".");
         webElement.sendKeys(keysToSend);
@@ -55,18 +55,15 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
 
     /**
      * Hides sent characters in log by utilizing the *** pattern rather than actual characters.
-     * @param keysToSend
+     *
+     * @param keysToSend Characters to send to the element
      */
     public void sendSecretKeys(CharSequence... keysToSend) {
         if(keysToSend == null){
             loggerList.logInfo("Attempting to send null to " + elementString + " with sendSecretKeys(). Skipping it.");
             return;
         }
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < keysToSend.length; i++){
-            sb.append("*");
-        }
-        loggerList.logExecutionStep("Sending secret keys '" + sb.toString() + "' to " + elementString + ".");
+        loggerList.logExecutionStep("Sending secret keys '" + "*".repeat(keysToSend.length) + "' to " + elementString + ".");
         webElement.sendKeys(keysToSend);
     }
 
@@ -126,6 +123,7 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
         WebElement element = webElement.findElement(by);
         if (element == null) {
             log("Could not identify any element for By statement '" + by.toString() + "'.");
+            return null;
         } else {
             log("Identified element for By statement '" + by.toString() + "'.");
         }

@@ -2,8 +2,8 @@ package com.zingtongroup.loggingseleniumwebdriver;
 
 import com.zingtongroup.loggingseleniumwebdriver.loggertypes.ConsoleLogger;
 import com.zingtongroup.loggingseleniumwebdriver.logging.LogLevel;
-import com.zingtongroup.loggingseleniumwebdriver.logging.LoggerList;
 import com.zingtongroup.loggingseleniumwebdriver.logging.Logger;
+import com.zingtongroup.loggingseleniumwebdriver.logging.LoggerList;
 import com.zingtongroup.loggingseleniumwebdriver.logging.LoggingSeleniumWebDriverException;
 import com.zingtongroup.loggingseleniumwebdriver.loggingseleniumcomponents.*;
 import org.openqa.selenium.By;
@@ -64,8 +64,9 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * Sets minimum log level to enable more or less verbose logging.
-     * @param logLevel
-     * @return
+     *
+     * @param logLevel LogLevel, for example from TestFlowLogLevel enum
+     * @return Returns itself to enable chained commands
      */
     public LoggingSeleniumWebDriver setMinimumLogLevel(LogLevel logLevel){
         loggerList.minimumLogLevel = logLevel;
@@ -74,7 +75,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * Used before attachWebDriverInstance() method to disconnect and change {@link WebDriver} instance for consistent logging over multiple browser instances.
-     * @return
+     * @return Returns itself to enable chained commands
      */
     public LoggingSeleniumWebDriver detachWebDriverInstance(){
         originalWebDriver = null;
@@ -93,7 +94,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * Push a (TestFlowLogLevel.INFO) message to the log.
-     * @param message
+     * @param message The message to output in the log
      */
     public void log(String message) {
         loggerList.logInfo(message);
@@ -101,7 +102,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * Pushes a log message with DEBUG log level to registered {@link Logger} instances.
-     * @param message
+     * @param message The message to output in the log
      */
     public void logDebug(String message){
         loggerList.logDebug(message);
@@ -117,7 +118,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * Pushes a log message with INFO log level to registered {@link Logger} instances.
-     * @param message
+     * @param message The message to output in the log
      */
     public void logInfo(String message){
         loggerList.logInfo(message);
@@ -125,14 +126,14 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * Pushes a log message with EXECUTION_STEP log level to registered {@link Logger} instances.
-     * @param message
+     * @param message The message to output in the log
      */
     public void logExecutionStep(String message){
         loggerList.logExecutionStep(message);
     }
 
     /**
-     * Supresses logging until the resumeLogging() method is called.
+     * Suppresses logging until the resumeLogging() method is called.
      */
     public void pauseLogging() {
         loggerList.pauseLogging();
@@ -147,7 +148,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @param url
+     * @param url The URL to navigate to
      */
     public void get(String url) {
         logExecutionStep("Navigating to '" + url + "'.");
@@ -156,7 +157,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @return
+     * @return The current browser URL
      */
     public String getCurrentUrl() {
         String url = originalWebDriver.getCurrentUrl();
@@ -166,7 +167,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @return
+     * @return The current browser tab title
      */
     public String getTitle() {
         String title = originalWebDriver.getTitle();
@@ -176,8 +177,8 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @param by
-     * @return
+     * @param by Selenium element identifier
+     * @return List of matching elements
      */
     public List<WebElement> findElements(By by) {
         List<WebElement> elements = originalWebDriver.findElements(by);
@@ -191,13 +192,14 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @param by
-     * @return
+     * @param by Selenium element identifier
+     * @return First matching element
      */
     public WebElement findElement(By by) {
         WebElement element = originalWebDriver.findElement(by);
         if (element == null) {
             logDebug("Could not identify any element for By statement '" + by.toString() + "'.");
+            return null;
         } else {
             logDebug("Identified element for By statement '" + by.toString() + "'.");
         }
@@ -206,7 +208,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @return
+     * @return Current browser page source
      */
     public String getPageSource() {
         logInfo("Retrieving current page source.");
@@ -231,7 +233,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @return
+     * @return Window handles
      */
     public Set<String> getWindowHandles() {
         Set<String> windowHandles = originalWebDriver.getWindowHandles();
@@ -241,7 +243,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @return
+     * @return Window handle
      */
     public String getWindowHandle() {
         String handle = originalWebDriver.getWindowHandle();
@@ -251,7 +253,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @return
+     * @return Locator
      */
     public WebDriver.TargetLocator switchTo() {
         return new LoggingTargetLocator(originalWebDriver.switchTo(), loggerList);
@@ -259,7 +261,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @return
+     * @return Navigation entity
      */
     public WebDriver.Navigation navigate() {
         return new LoggingNavigation(originalWebDriver.navigate(), loggerList);
@@ -267,7 +269,7 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
 
     /**
      * {@link WebDriver} native method, but with logging.
-     * @return
+     * @return Options entity
      */
     public WebDriver.Options manage() {
         return new LoggingOptions(originalWebDriver.manage(), loggerList);
@@ -277,29 +279,34 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
      * {@link LoggingSeleniumWebDriver} constructor from builder pattern.
      * Make sure to finish with the build() method.
      */
-    public static class Builder{
+    public static class Builder {
 
         private WebDriver driver;
-        private LoggerList loggerList;
-        private LogLevel mimimumLogLevel;
+        private final LoggerList loggerList;
+        private LogLevel minimumLogLevel;
 
-        public Builder(){
+        public Builder() {
             loggerList = new LoggerList();
-            mimimumLogLevel = null;
+            minimumLogLevel = null;
             driver = null;
         }
 
-        public Builder addLogger(Logger logger){
+        public Builder addLogger(Logger logger) {
             loggerList.add(logger);
             return this;
         }
 
-        public Builder attachWebDriverInstance(WebDriver webDriver){
+        public Builder attachWebDriverInstance(WebDriver webDriver) {
             driver = webDriver;
             return this;
         }
 
-        public Builder startWithLoggingPaused(){
+        public Builder removeAllLoggers() {
+            loggerList.removeAllLoggers();
+            return this;
+        }
+
+        public Builder startWithLoggingPaused() {
             loggerList.pauseLogging();
             return this;
         }
@@ -307,12 +314,12 @@ public class LoggingSeleniumWebDriver implements WebDriver, LoggingSeleniumCompo
         public LoggingSeleniumWebDriver build() {
             LoggingSeleniumWebDriver loggingSeleniumWebDriver = new LoggingSeleniumWebDriver(driver);
             loggingSeleniumWebDriver.loggerList = loggerList;
-            if(mimimumLogLevel != null) loggingSeleniumWebDriver.setMinimumLogLevel(mimimumLogLevel);
+            if (minimumLogLevel != null) loggingSeleniumWebDriver.setMinimumLogLevel(minimumLogLevel);
             return loggingSeleniumWebDriver;
         }
 
-        public Builder setMinimumLogLevel(LogLevel mimimumLogLevel) {
-            this.mimimumLogLevel = mimimumLogLevel;
+        public Builder setMinimumLogLevel(LogLevel minimumLogLevel) {
+            this.minimumLogLevel = minimumLogLevel;
             return this;
         }
     }

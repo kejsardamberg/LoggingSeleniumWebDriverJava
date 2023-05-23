@@ -14,17 +14,17 @@ public class LoggerList extends ArrayList<Logger> {
         minimumLogLevel = TestFlowLogLevel.INFO;
     }
 
-    public void setMinimumLogLevel(LogLevel miniumumLogLevel) {
-        this.minimumLogLevel = miniumumLogLevel;
+    public void setMinimumLogLevel(LogLevel minimumLogLevel) {
+        this.minimumLogLevel = minimumLogLevel;
     }
 
-    private void addLogPostToLoggers(LogPost logPost){
+    private void addLogPostToLoggers(LogPost logPost) {
         for (Logger logger : this) {
-            try{
+            try {
                 logger.addLogPost(logPost);
-            }catch (Exception e){
-                for(Logger l : this){
-                    if(l.equals(logger))continue;
+            } catch (Exception e) {
+                for (Logger l : this) {
+                    if (l.equals(logger)) continue;
                     l.addLogPost(new LogPost(TestFlowLogLevel.EXCEPTION, e.toString()));
                 }
                 throw e;
@@ -81,6 +81,10 @@ public class LoggerList extends ArrayList<Logger> {
             }
         }
         return null;
+    }
+
+    public void removeAllLoggers() {
+        this.clear();
     }
 
     public Logger getLoggerOfType(Class<?> type) {

@@ -1,4 +1,3 @@
-import TestHelpers.TestWebDriver;
 import com.zingtongroup.loggingseleniumwebdriver.LoggingSeleniumWebDriver;
 import com.zingtongroup.loggingseleniumwebdriver.loggertypes.ConsoleLogger;
 import com.zingtongroup.loggingseleniumwebdriver.logging.LoggingSeleniumWebDriverException;
@@ -6,8 +5,7 @@ import com.zingtongroup.loggingseleniumwebdriver.logging.TestFlowLogLevel;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import testhelpers.TestWebDriver;
 
 public class LoggingSeleniumWebDriverTests {
 
@@ -28,7 +26,7 @@ public class LoggingSeleniumWebDriverTests {
     @Test
     public void builderPatternTest(){
         WebDriver driver = new LoggingSeleniumWebDriver.Builder()
-                .attachWebDriverInstance(new ChromeDriver())
+                .attachWebDriverInstance(new TestWebDriver())
                 .addLogger(new ConsoleLogger())
                 .setMinimumLogLevel(TestFlowLogLevel.DEBUG)
                 .build();
@@ -43,12 +41,12 @@ public class LoggingSeleniumWebDriverTests {
 
     @Test
     public void setLogLevelTest() throws LoggingSeleniumWebDriverException {
-        WebDriver driver1 = new FirefoxDriver();
+        WebDriver driver1 = new TestWebDriver();
         LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(driver1);
         driver.detachWebDriverInstance();
         driver1.quit();
 
-        WebDriver driver2 = new ChromeDriver();
+        WebDriver driver2 = new TestWebDriver();
         driver.attachWebDriverInstance(driver2);
         driver.setMinimumLogLevel(TestFlowLogLevel.INFO);
         driver.log("Message");

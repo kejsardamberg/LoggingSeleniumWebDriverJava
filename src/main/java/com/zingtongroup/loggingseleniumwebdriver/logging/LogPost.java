@@ -4,9 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class LogPost {
-    public LogLevel logLevel;
-    public String logMessage;
-    public Date date;
+    public final LogLevel logLevel;
+    public final String logMessage;
+    public final Date date;
 
     public LogPost(LogLevel logLevel, String logMessage) {
         date = new Date();
@@ -15,7 +15,7 @@ public class LogPost {
     }
 
     @Override
-    public String toString(){
-        return String.valueOf(logLevel.getValue()) + "-" + logLevel.toString() + " " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date) + " " + logMessage;
+    public String toString() {
+        return logLevel.getValue() + "-" + logLevel.toString() + " " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date) + " " + logMessage;
     }
 }

@@ -7,8 +7,8 @@ import org.openqa.selenium.logging.Logs;
 import java.util.Set;
 
 public class LoggingLogs implements Logs, LoggingSeleniumComponent {
-    public LoggerList loggerList;
-    public Logs logs;
+    public final LoggerList loggerList;
+    public final Logs logs;
 
     public LoggingLogs(Logs logs, LoggerList loggerList) {
         this.loggerList = loggerList;

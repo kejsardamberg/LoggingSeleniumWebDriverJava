@@ -1,4 +1,4 @@
-package TestHelpers;
+package testhelpers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +34,7 @@ public class TestWebDriver implements WebDriver {
 
     @Override
     public WebElement findElement(By by) {
-        return null;
+        return new TestWebElement();
     }
 
     @Override
