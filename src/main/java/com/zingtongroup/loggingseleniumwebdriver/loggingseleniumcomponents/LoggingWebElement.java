@@ -46,7 +46,9 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(keysToSend);
+        for(CharSequence seq : keysToSend){
+            sb.append(String.valueOf(seq));
+        }
         loggerList.logExecutionStep("Sending keys '" + sb.toString() + "' to " + elementString + ".");
         webElement.sendKeys(keysToSend);
     }
