@@ -3,6 +3,8 @@ Simple logging framework to wrap a Java Selenium WebDriver instance to make it o
 This library by default logs event by the WebDriver instance in a natural flow. 
 You may also log your own messages to the log, for example for verification results. 
 
+If you are looking for similar functionality for C#/.NET, check this out:https://damberg.one/alster/work/loggingselenium.html
+
 ## What it is
 Selenium WebDriver is a useful tool to drive web browser activities for test purposes. 
 However, Selenium WebDriver doesn't have any means of telling what it has done for logging purposes.
@@ -44,16 +46,24 @@ Depending on the log level this could get even more detailed (as can be seen bel
 
 ## Getting started
 ### Including dependency
+#### Maven dependency
 Get it from maven central by including this to your dependencies section of your pom.xml file:
 ```xml
 <dependency>
     <groupId>com.github.claremontqualitymanagement</groupId>
     <artifactId>LoggingSeleniumWebDriver</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
 </dependency>
 ```
-or by downloading release artifacts from this repository, or clone the code and compile it yourself.
+#### Direct download
+You can also download released artifacts direclty from this repository and include them in your classpath. 
+The latest released binaries can be found here:
+https://github.com/kejsardamberg/LoggingSeleniumWebDriverJava/releases/tag/LoggingSeleniumWebDriver-1.2.3
 
+#### Clone and compile
+Of course you may also clone the code from this repository and compile it yourself as long as you adhere to the Apache 2.0 license terms.
+
+## Usage
 ### Regular instantiation
 ```java
     WebDriver driver = new LoggingSeleniumWebDriver(new ChromeDriver()); //Enables console logger by default
@@ -63,7 +73,7 @@ or by downloading release artifacts from this repository, or clone the code and 
         WebDriver driver = new LoggingSeleniumWebDriver.Builder()
                 .attachWebDriverInstance(new ChromeDriver())
                 .addLogger(new ConsoleLogger())
-                .setMinimumLogLevel(LogLevel.DEBUG)
+                .setMinimumLogLevel(TestFlowLogLevel.DEBUG)
                 .build();
         driver.get("https://mysaite.com");
 ```
@@ -79,7 +89,7 @@ There are several log levels, DEBUG, INFO, EXECUTION_STEP, and EXCEPTION (in thi
 To set the minimum log level, use the setMinimumLogLevel() method.
 ```java
         LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(new FirefoxDriver());
-        driver.setMinimumLogLevel(LogLevel.INFO);
+        driver.setMinimumLogLevel(TestFlowLogLevel.INFO);
 ```    
 Using the builder pattern you may also set the logging level at instansiation.
 
@@ -136,3 +146,5 @@ THe Logger is an interface. Feel free to implement your own classes based on thi
 
 ### Extend with custom log levels
 Any new log level should implement the LogLevel interface. You might need to override existing log levels for log level filtering log level to work as expected. 
+
+
