@@ -14,7 +14,7 @@ public class ConsoleLogger implements Logger {
     }
 
     public void addLogPost(LogPost logPost) {
-        System.out.println(sdf.format(logPost.date) + " " + logPost.logLevel + ": " + logPost.logMessage);
+        System.out.println(sdf.format(logPost.date) + " " + logPost.logLevel.toString() + ": " + logPost.logMessage);
     }
 
     public void addLogPost(String logMessage) {
