@@ -3,9 +3,7 @@ Simple logging framework to wrap a Java Selenium WebDriver instance to make it o
 This library by default logs event by the WebDriver instance in a natural flow. 
 You may also log your own messages to the log, for example for verification results. 
 
-## .NET/C# version
-If you are looking for similar functionality for C#/.NET, check this out:
-https://damberg.one/alster/work/loggingselenium.html
+If you are looking for similar functionality for C#/.NET, check this out:https://damberg.one/alster/work/loggingselenium.html
 
 ## What it is
 Selenium WebDriver is a useful tool to drive web browser activities for test purposes. 
