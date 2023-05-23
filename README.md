@@ -44,6 +44,7 @@ Depending on the log level this could get even more detailed (as can be seen bel
 
 ## Getting started
 ### Including dependency
+#### Maven dependency
 Get it from maven central by including this to your dependencies section of your pom.xml file:
 ```xml
 <dependency>
@@ -52,12 +53,15 @@ Get it from maven central by including this to your dependencies section of your
     <version>1.2.3</version>
 </dependency>
 ```
+#### Direct download
 You can also download released artifacts direclty from this repository and include them in your classpath. 
 The latest released binaries can be found here:
 https://github.com/kejsardamberg/LoggingSeleniumWebDriverJava/releases/tag/LoggingSeleniumWebDriver-1.2.3
 
+#### Clone and compile
 Of course you may also clone the code from this repository and compile it yourself as long as you adhere to the Apache 2.0 license terms.
 
+## Usage
 ### Regular instantiation
 ```java
     WebDriver driver = new LoggingSeleniumWebDriver(new ChromeDriver()); //Enables console logger by default
