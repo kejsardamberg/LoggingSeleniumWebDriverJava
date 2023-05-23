@@ -144,3 +144,5 @@ THe Logger is an interface. Feel free to implement your own classes based on thi
 
 ### Extend with custom log levels
 Any new log level should implement the LogLevel interface. You might need to override existing log levels for log level filtering log level to work as expected. 
+
+
