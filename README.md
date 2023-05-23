@@ -73,7 +73,7 @@ Of course you may also clone the code from this repository and compile it yourse
         WebDriver driver = new LoggingSeleniumWebDriver.Builder()
                 .attachWebDriverInstance(new ChromeDriver())
                 .addLogger(new ConsoleLogger())
-                .setMinimumLogLevel(LogLevel.DEBUG)
+                .setMinimumLogLevel(TestFlowLogLevel.DEBUG)
                 .build();
         driver.get("https://mysaite.com");
 ```
@@ -89,7 +89,7 @@ There are several log levels, DEBUG, INFO, EXECUTION_STEP, and EXCEPTION (in thi
 To set the minimum log level, use the setMinimumLogLevel() method.
 ```java
         LoggingSeleniumWebDriver driver = new LoggingSeleniumWebDriver(new FirefoxDriver());
-        driver.setMinimumLogLevel(LogLevel.INFO);
+        driver.setMinimumLogLevel(TestFlowLogLevel.INFO);
 ```    
 Using the builder pattern you may also set the logging level at instansiation.
 
