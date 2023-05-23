@@ -52,13 +52,13 @@ Get it from maven central by including this to your dependencies section of your
 <dependency>
     <groupId>com.github.claremontqualitymanagement</groupId>
     <artifactId>LoggingSeleniumWebDriver</artifactId>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
 </dependency>
 ```
 #### Direct download
 You can also download released artifacts direclty from this repository and include them in your classpath. 
 The latest released binaries can be found here:
-https://github.com/kejsardamberg/LoggingSeleniumWebDriverJava/releases/tag/LoggingSeleniumWebDriver-1.2.3
+https://github.com/kejsardamberg/LoggingSeleniumWebDriverJava/releases/tag/LoggingSeleniumWebDriver-1.2.4
 
 #### Clone and compile
 Of course you may also clone the code from this repository and compile it yourself as long as you adhere to the Apache 2.0 license terms.
