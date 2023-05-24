@@ -10,12 +10,18 @@ public class LoggingWebElement implements LoggingSeleniumComponent, WebElement {
 
     public final WebElement webElement;
     public final LoggerList loggerList;
-    public final String elementString;
+    public String elementString;
 
     public LoggingWebElement(WebElement webElement, LoggerList loggerList) {
         this.webElement = webElement;
         this.loggerList = loggerList;
-        this.elementString = webElement.getTagName() + " element " + webElement.getAccessibleName();
+        this.elementString = "nameless element";
+        try{
+            this.elementString = webElement.getTagName() + " element ";
+            this.elementString += webElement.getAccessibleName();
+        }catch (Exception e){
+            //Element description should not be a showstopper
+        }
     }
 
     public void pauseLogging() {
