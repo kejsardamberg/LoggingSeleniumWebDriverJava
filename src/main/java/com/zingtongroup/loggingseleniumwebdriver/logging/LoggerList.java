@@ -44,6 +44,27 @@ public class LoggerList extends ArrayList<Logger> {
         addLogPostToLoggers(logPost);
     }
 
+    public void logVerificationPassed(String logMessage){
+        if (isPaused) return;
+        LogPost logPost = new LogPost(TestFlowLogLevel.PASSED_VERIFICATION, logMessage);
+        if (logPost.logLevel.getValue() < minimumLogLevel.getValue()) return;
+        addLogPostToLoggers(logPost);
+    }
+
+    public void logVerificationFailed(String logMessage){
+        if (isPaused) return;
+        LogPost logPost = new LogPost(TestFlowLogLevel.FAILED_VERIFICATION, logMessage);
+        if (logPost.logLevel.getValue() < minimumLogLevel.getValue()) return;
+        addLogPostToLoggers(logPost);
+    }
+
+    public void logVerificationProblem(String logMessage){
+        if (isPaused) return;
+        LogPost logPost = new LogPost(TestFlowLogLevel.VERIFICATION_PROBLEM, logMessage);
+        if (logPost.logLevel.getValue() < minimumLogLevel.getValue()) return;
+        addLogPostToLoggers(logPost);
+    }
+
     public void logInfo(String logMessage) {
         if (isPaused) return;
         LogPost logPost = new LogPost(TestFlowLogLevel.INFO, logMessage);

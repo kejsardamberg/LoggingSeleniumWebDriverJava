@@ -1,0 +1,5 @@
+LoggingSeleniumWebDriverTests.class
+testhelpers\TestWebDriver.class
+testhelpers\TestWebElement.class
+testhelpers\TestFakeBrowser.class
+testhelpers\TestLogger.class
