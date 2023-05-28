@@ -4,7 +4,7 @@
 
     <groupId>com.github.claremontqualitymanagement.seleniumextensions</groupId>
     <artifactId>LoggingSeleniumWebDriver</artifactId>
-    <version>1.3.2-SNAPSHOT</version>
+    <version>1.3.2</version>
 
     <name>Logging Selenium WebDriver</name>
     <description>Wrapper for any WebDriver instance to make it output logging. Highly extendable.</description>
@@ -35,7 +35,7 @@
         <connection>scm:git:git://github.com/kejsardamberg/LoggingSeleniumWebDriverJava.git</connection>
         <developerConnection>scm:git://github.com/kejsardamberg/LoggingSeleniumWebDriverJava.git</developerConnection>
         <url>https://github.com/kejsardamberg/LoggingSeleniumWebDriverJava</url>
-        <tag>com.zingtongroup.loggingseleniumwebdriver.LoggingSeleniumWebDriver-1.2.4</tag>
+        <tag>LoggingSeleniumWebDriver-1.3.2</tag>
   </scm>
 
     <dependencies>
