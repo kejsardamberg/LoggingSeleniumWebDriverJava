@@ -52,7 +52,7 @@ Get it from maven central by including this to your dependencies section of your
 <dependency>
     <groupId>com.github.claremontqualitymanagement.seleniumextensions</groupId>
     <artifactId>LoggingSeleniumWebDriver</artifactId>
-    <version>1.3.2</version>
+    <version>1.4.0</version>
 </dependency>
 ```
 #### Direct download
