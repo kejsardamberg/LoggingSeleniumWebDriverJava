@@ -1,11 +1,11 @@
-package com.zingtongroup.loggingseleniumwebdriver;
+package com.zingtongroup.seleniumextensions.loggingseleniumwebdriver;
 
-import com.zingtongroup.loggingseleniumwebdriver.loggertypes.ConsoleLogger;
-import com.zingtongroup.loggingseleniumwebdriver.logging.LogLevel;
-import com.zingtongroup.loggingseleniumwebdriver.logging.Logger;
-import com.zingtongroup.loggingseleniumwebdriver.logging.LoggerList;
-import com.zingtongroup.loggingseleniumwebdriver.logging.LoggingSeleniumWebDriverException;
-import com.zingtongroup.loggingseleniumwebdriver.loggingseleniumcomponents.*;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.loggertypes.ConsoleLogger;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.LogLevel;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.Logger;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.LoggerList;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.LoggingSeleniumWebDriverException;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.loggingseleniumcomponents.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

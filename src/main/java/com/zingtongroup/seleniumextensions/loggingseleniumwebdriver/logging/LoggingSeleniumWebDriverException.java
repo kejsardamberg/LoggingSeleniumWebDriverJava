@@ -1,4 +1,4 @@
-package com.zingtongroup.loggingseleniumwebdriver.logging;
+package com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging;
 
 public class LoggingSeleniumWebDriverException extends Exception {
 

@@ -1,6 +1,6 @@
-package com.zingtongroup.loggingseleniumwebdriver.loggingseleniumcomponents;
+package com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.loggingseleniumcomponents;
 
-import com.zingtongroup.loggingseleniumwebdriver.logging.LoggerList;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.LoggerList;
 import org.openqa.selenium.WebDriver;
 
 import java.net.URL;

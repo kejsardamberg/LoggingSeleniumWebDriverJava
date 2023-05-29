@@ -1,7 +1,7 @@
-import com.zingtongroup.loggingseleniumwebdriver.LoggingSeleniumWebDriver;
-import com.zingtongroup.loggingseleniumwebdriver.loggertypes.ConsoleLogger;
-import com.zingtongroup.loggingseleniumwebdriver.logging.LoggingSeleniumWebDriverException;
-import com.zingtongroup.loggingseleniumwebdriver.logging.TestFlowLogLevel;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.LoggingSeleniumWebDriver;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.loggertypes.ConsoleLogger;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.LoggingSeleniumWebDriverException;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.TestFlowLogLevel;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

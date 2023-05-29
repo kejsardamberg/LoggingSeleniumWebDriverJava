@@ -1,4 +1,4 @@
-package com.zingtongroup.loggingseleniumwebdriver.logging;
+package com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

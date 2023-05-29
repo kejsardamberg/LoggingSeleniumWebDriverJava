@@ -1,8 +1,8 @@
-package com.zingtongroup.loggingseleniumwebdriver.loggertypes;
+package com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.loggertypes;
 
-import com.zingtongroup.loggingseleniumwebdriver.logging.LogPost;
-import com.zingtongroup.loggingseleniumwebdriver.logging.Logger;
-import com.zingtongroup.loggingseleniumwebdriver.logging.TestFlowLogLevel;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.LogPost;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.Logger;
+import com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.logging.TestFlowLogLevel;
 
 import java.text.SimpleDateFormat;
 

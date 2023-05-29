@@ -1,4 +1,4 @@
-package com.zingtongroup.loggingseleniumwebdriver.loggingseleniumcomponents;
+package com.zingtongroup.seleniumextensions.loggingseleniumwebdriver.loggingseleniumcomponents;
 
 public interface LoggingSeleniumComponent {
 
