@@ -50,9 +50,9 @@ Depending on the log level this could get even more detailed (as can be seen bel
 Get it from maven central by including this to your dependencies section of your pom.xml file:
 ```xml
 <dependency>
-    <groupId>com.github.claremontqualitymanagement</groupId>
+    <groupId>com.github.claremontqualitymanagement.seleniumextensions</groupId>
     <artifactId>LoggingSeleniumWebDriver</artifactId>
-    <version>1.3.1</version>
+    <version>1.3.2</version>
 </dependency>
 ```
 #### Direct download
